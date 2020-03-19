@@ -4,13 +4,19 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - name: npm_install
+        run: |
+          cd jekyll
+          npm clean-install
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6"
       - env:
           JEKYLL_ENV: production
-        name: build_jekyll
-        run: bundle exec jekyll build
+        name: jekyll_build
+        run: |
+          cd jekyll
+          bundle exec jekyll build
 
 name: jekyll_workflow
 
