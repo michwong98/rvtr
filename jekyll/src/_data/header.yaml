@@ -1,4 +1,4 @@
-- name: apps
-  link: "#"
 - name: blog
-  link: "#"
+  link: /blog
+- name: team
+  link: /team

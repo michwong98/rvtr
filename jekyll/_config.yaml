@@ -1,1 +1,23 @@
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: "blog.html"
+    values:
+      layout: "blog"
+  - scope:
+      path: ""
+    values:
+      layout: "web"
+collections:
+  authors:
+    output: true
 source: src
