@@ -1,14 +1,14 @@
 jobs:
   build:
-    name: build_jekyll
+    name: build
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - env:
           JEKYLL_ENV: production
-        name: jekyll_build
+        name: build_jekyll
         run: bundle exec jekyll build
 
-name: integration_pipeline
+name: jekyll
 
 on: [push]
