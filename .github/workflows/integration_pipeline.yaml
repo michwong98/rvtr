@@ -21,6 +21,6 @@ jobs:
         run: bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
 
-name: pipeline
+name: integration_pipeline
 
 on: [push]
