@@ -1,23 +1,26 @@
 jobs:
   build:
+    env:
+      WORKING_DIRECTORY: jekyll
     name: build
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - name: jekyll_directory
-        run: cd jekyll
       - name: npm_install
         run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6"
       - name: bundle_install
         run: bundle install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - env:
           JEKYLL_ENV: production
         name: jekyll_build
         run: bundle exec jekyll build
+        working-directory: ${{ env.WORKING_DIRECTORY }}
 
-name: jekyll_workflow
+name: pipeline
 
 on: [push]
