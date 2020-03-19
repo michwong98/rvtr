@@ -12,6 +12,6 @@ jobs:
         name: build_jekyll
         run: bundle exec jekyll build
 
-name: jekyll
+name: jekyll_workflow
 
 on: [push]
