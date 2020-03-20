@@ -2,8 +2,8 @@
   <small>&copy; 2020 RVTR &Colon; fred belotte</small>
 
   <nav>
-    {% for item in site.data.footer %}
-    <a href="{{ item.link }}">{{ item.name }}</a>
+    {% for link in site.data.footer %}
+    <a href="{{ link.url }}">{{ link.text }}</a>
     {% endfor %}
   </nav>
 </footer>
