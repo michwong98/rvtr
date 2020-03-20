@@ -3,7 +3,9 @@
 
   <nav>
     {% for link in site.data.footer %}
-    <a href="{{ link.url }}">{{ link.text }}</a>
+    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+      {{ link.text }}
+    </a>
     {% endfor %}
   </nav>
 </footer>
