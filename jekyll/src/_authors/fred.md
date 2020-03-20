@@ -1,10 +1,8 @@
 ---
-layout: author
-name: fred belotte
-position: Lead Trainer
+full_name: fred belotte
 short_name: fred
 ---
 
 # bio
 
-CloudOps | DevOps | Engineer
+software engineer
