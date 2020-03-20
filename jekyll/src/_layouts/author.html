@@ -1,16 +1,16 @@
 ---
-layout: web
 ---
 
-<h1>{{ page.name }}</h1>
-<h2>{{ page.position }}</h2>
+<h1>{{ page.full_name }}</h1>
 
 {{ content }}
 
 <h2>Posts</h2>
 <ul>
-  {% assign filtered_posts = site.posts | where: 'author', page.short_name %} {%
-  for post in filtered_posts %}
-  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% assign posts = site.posts | where: 'author', page.short_name %} {% for post
+  in posts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.title }}</a>
+  </li>
   {% endfor %}
 </ul>
