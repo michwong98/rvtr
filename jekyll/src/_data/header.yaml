@@ -1,4 +1,4 @@
-- name: blog
-  link: /blog
-- name: team
-  link: /team
+- text: blog
+  url: /blog
+- text: team
+  url: /team
