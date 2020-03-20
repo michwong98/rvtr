@@ -6,17 +6,18 @@ defaults:
       layout: "author"
   - scope:
       path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  - scope:
+      path: ""
       type: "posts"
     values:
       layout: "post"
   - scope:
-      path: "blog.html"
-    values:
-      layout: "blog"
-  - scope:
       path: ""
     values:
-      layout: "web"
+      layout: "base"
 
 collections:
   authors:
