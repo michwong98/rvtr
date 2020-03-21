@@ -1,0 +1,11 @@
+<footer>
+  <small>&copy; 2020 RVTR &Colon; fred belotte</small>
+
+  <nav>
+    {% for link in site.data.footer %}
+    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
+      {{ link.text }}
+    </a>
+    {% endfor %}
+  </nav>
+</footer>

@@ -1,0 +1,11 @@
+<header>
+  <h1>
+    <a href="/">RVTR</a>
+  </h1>
+
+  <nav>
+    {% for link in site.data.header %}
+    <a href="{{ link.url }}">{{ link.text }}</a>
+    {% endfor %}
+  </nav>
+</header>
