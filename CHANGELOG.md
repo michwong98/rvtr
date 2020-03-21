@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning][semver].
 
 ### added
 
-- setup jekyll directory
+- scaffold the jekyll directory
 
-[changelog]: https://keepachangelog.com/en/1.0.0/ 'keep a changelog'
-[semver]: https://semver.org/spec/v2.0.0.html 'semantic versioning'
-[unreleased]: https://github.com/RVTR/rvtr/tree/master 'unreleased'
+[changelog]: https://keepachangelog.com/en/1.0.0/ "keep a changelog"
+[semver]: https://semver.org/spec/v2.0.0.html "semantic versioning"
+[unreleased]: https://github.com/RVTR/rvtr/tree/master "unreleased"
