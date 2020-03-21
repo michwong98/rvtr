@@ -4,6 +4,7 @@
   "name": "@rvtr/jekyll",
   "version": "0.0.0",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.12.1",
     "bulma": "^0.8.0"
   }
 }
