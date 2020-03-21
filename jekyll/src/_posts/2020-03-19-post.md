@@ -2,8 +2,6 @@
 author: fred
 ---
 
-# lorem
-
 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Recusandae quis
 distinctio ut laudantium asperiores molestiae eum odit necessitatibus
 exercitationem delectus voluptatem, cumque praesentium atque veniam culpa
