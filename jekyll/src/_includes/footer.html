@@ -1,11 +1,22 @@
-<footer>
-  <small>&copy; 2020 RVTR &Colon; fred belotte</small>
+<footer class="footer">
+  <div class="container">
+    <nav class="level">
+      <div class="level-left">
+        <small class="level-item">&copy; 2020 RVTR &Colon; fred belotte</small>
+      </div>
 
-  <nav>
-    {% for link in site.data.footer %}
-    <a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">
-      {{ link.text }}
-    </a>
-    {% endfor %}
-  </nav>
+      <div class="level-right">
+        {% for link in site.data.footer %}
+        <a
+          class="level-item"
+          href="{{ link.url }}"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          {{ link.text }}
+        </a>
+        {% endfor %}
+      </div>
+    </nav>
+  </div>
 </footer>
