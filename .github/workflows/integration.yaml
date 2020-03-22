@@ -20,6 +20,28 @@ jobs:
         name: jekyll_build
         run: bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: upload_artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: deploy
+          path: _site
+
+  deploy:
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    name: deploy
+    needs: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: download_artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: _site
+      - name: npm_install
+        run: npm install --save-dev netlify-cli
+      - name: netlify_deploy
+        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir deploy/_site --site ${{ env.NETLIFY_SITE_ID }}
 
 name: integration
 
