@@ -2,13 +2,15 @@
   <nav class="navbar is-fixed-top">
     <div class="container">
       <div class="navbar-brand">
-        <a class="navbar-item" href="/">RVTR</a>
+        <a class="navbar-item has-text-link" href="/">RVTR</a>
       </div>
 
       <div class="navbar-menu">
         <div class="navbar-end">
           {% for link in site.data.header %}
-          <a class="navbar-item" href="{{ link.url }}">{{ link.text }}</a>
+          <a class="navbar-item has-text-link" href="{{ link.url }}">
+            {{ link.text }}
+          </a>
           {% endfor %}
         </div>
       </div>
