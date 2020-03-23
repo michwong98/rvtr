@@ -8,7 +8,6 @@ title: RVTR &Colon; blog
       <div class="columns">
         <div class="column">
           <h1 class="title is-2">blog</h1>
-          <br />
 
           {% for post in site.posts %}
           <div class="box">
@@ -25,7 +24,9 @@ title: RVTR &Colon; blog
                     {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
                   </p>
 
-                  <p>{{ post.excerpt }}</p>
+                  <section>
+                    {{ post.excerpt }}
+                  </section>
                 </div>
               </div>
             </article>
