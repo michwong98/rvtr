@@ -23,8 +23,8 @@ jobs:
       - name: upload_artifact
         uses: actions/upload-artifact@v1
         with:
-          name: dist
-          path: _site
+          name: drop
+          path: jekyll/_site
 
   deploy:
     env:
@@ -37,11 +37,11 @@ jobs:
       - name: download_artifact
         uses: actions/download-artifact@v1
         with:
-          name: dist
+          name: drop
       - name: npm_install
         run: npm install --save-dev netlify-cli
       - name: netlify_deploy
-        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir dist/_site --site ${{ env.NETLIFY_SITE_ID }}
+        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop/_site --site ${{ env.NETLIFY_SITE_ID }}
 
 name: integration
 
