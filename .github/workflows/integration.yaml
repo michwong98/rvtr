@@ -12,6 +12,9 @@ jobs:
       - name: npm_install
         run: npm clean-install
         working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: npm_build
+        run: npm run build
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: bundle_install
         run: bundle install
         working-directory: ${{ env.WORKING_DIRECTORY }}
