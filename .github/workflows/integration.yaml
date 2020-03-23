@@ -41,7 +41,7 @@ jobs:
       - name: npm_install
         run: npm install --save-dev netlify-cli
       - name: netlify_deploy
-        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop/_site --site ${{ env.NETLIFY_SITE_ID }}
+        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop --site ${{ env.NETLIFY_SITE_ID }}
 
 name: integration
 
