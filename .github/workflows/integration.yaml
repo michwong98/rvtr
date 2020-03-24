@@ -9,12 +9,6 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6"
-      - name: npm_install
-        run: npm clean-install
-        working-directory: ${{ env.WORKING_DIRECTORY }}
-      - name: npm_build
-        run: npm run build
-        working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: bundle_install
         run: bundle install
         working-directory: ${{ env.WORKING_DIRECTORY }}
