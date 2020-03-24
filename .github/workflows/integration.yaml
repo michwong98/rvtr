@@ -26,6 +26,7 @@ jobs:
   deploy:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_DEPLOY_MESSAGE: ${GITHUB_REF##*/}_${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     name: deploy
     needs: build
@@ -37,9 +38,19 @@ jobs:
           name: drop
       - name: npm_install
         run: npm install netlify-cli
-      - name: netlify_deploy
-        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop --message ${GITHUB_REF##*/}.${GITHUB_RUN_NUMBER} --site ${{ env.NETLIFY_SITE_ID }}
+      - if: github.event_name == 'pull_request'
+        name: netlify_deploy_pullrequest
+        run: npx netlify deploy --dir drop --message $NETLIFY_DEPLOY_MESSAGE
+      - if: github.event_name == 'push'
+        name: netlify_deploy_push
+        run: npx netlify deploy --dir drop --prod --message $NETLIFY_DEPLOY_MESSAGE
 
 name: integration
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
