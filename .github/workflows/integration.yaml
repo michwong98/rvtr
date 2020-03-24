@@ -38,7 +38,7 @@ jobs:
       - name: npm_install
         run: npm install netlify-cli
       - name: netlify_deploy
-        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop --message ${GITHUB_REF}.${GITHUB_RUN_NUMBER} --site ${{ env.NETLIFY_SITE_ID }}
+        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop --message ${GITHUB_REF##*/}.${GITHUB_RUN_NUMBER} --site ${{ env.NETLIFY_SITE_ID }}
 
 name: integration
 
