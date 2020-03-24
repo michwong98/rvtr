@@ -1,11 +1,24 @@
 <header>
-  <h1>
-    <a href="/">RVTR</a>
-  </h1>
+  <nav class="navbar is-fixed-top">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-link" href="/">
+          <span class="icon">
+            <i class="fas fa-rocket"></i>
+          </span>
+          <span>RVTR</span>
+        </a>
+      </div>
 
-  <nav>
-    {% for link in site.data.header %}
-    <a href="{{ link.url }}">{{ link.text }}</a>
-    {% endfor %}
+      <div class="navbar-menu">
+        <div class="navbar-end">
+          {% for link in site.data.header %}
+          <a class="navbar-item has-text-link" href="{{ link.url }}">
+            {{ link.text }}
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
   </nav>
 </header>

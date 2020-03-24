@@ -7,12 +7,17 @@
 
     <title>{{ page.title }}</title>
 
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bulma@0.8.1/css/bulma.min.css"
+      rel="stylesheet"
+    />
 
     {% feed_meta %} {% seo %}
   </head>
 
-  <body>
+  <body class="has-navbar-fixed-top">
     {% include header.html %} {{ content }} {% include footer.html %}
+
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/js/all.min.js"></script>
   </body>
 </html>

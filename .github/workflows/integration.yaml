@@ -9,9 +9,6 @@ jobs:
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6"
-      - name: npm_install
-        run: npm clean-install
-        working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: bundle_install
         run: bundle install
         working-directory: ${{ env.WORKING_DIRECTORY }}
@@ -20,6 +17,28 @@ jobs:
         name: jekyll_build
         run: bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
+      - name: upload_artifact
+        uses: actions/upload-artifact@v1
+        with:
+          name: drop
+          path: jekyll/_site
+
+  deploy:
+    env:
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+    name: deploy
+    needs: build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: download_artifact
+        uses: actions/download-artifact@v1
+        with:
+          name: drop
+      - name: npm_install
+        run: npm install netlify-cli
+      - name: netlify_deploy
+        run: npx netlify deploy --auth ${{ env.NETLIFY_AUTH_TOKEN }} --dir drop --message ${GITHUB_REF##*/}.${GITHUB_RUN_NUMBER} --site ${{ env.NETLIFY_SITE_ID }}
 
 name: integration
 

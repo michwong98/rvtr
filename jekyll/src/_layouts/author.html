@@ -1,18 +1,44 @@
 ---
-layout: base
+layout: page
 ---
 
-<main>
-  <h1>{{ page.full_name }}</h1>
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-head">
+    <div class="container">
+      <div class="columns">
+        <div class="column">
+          <h1 class="title is-3">{{ page.full_name }}</h1>
+          <h2 class="subtitle is-5">{{ content }}</h2>
+          <br />
 
-  <h2>posts</h2>
-  
-  <ul>
-    {% assign posts = site.posts | where: 'author', page.short_name %} {% for
-    post in posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-</main>
+          {% assign posts = site.posts | where: 'author', page.short_name %} {%
+          for post in posts %}
+          <div class="box">
+            <article class="media">
+              <div class="media-content">
+                <div class="content">
+                  <header>
+                    <h2 class="title is-4">
+                      <a class="has-text-link" href="{{ post.url }}">
+                        {{ post.title | downcase }}
+                      </a>
+                    </h2>
+
+                    <p class="subtitle is-6">
+                      {{ post.date | date: '%Y-%m-%d' }}
+                    </p>
+                  </header>
+
+                  <p>{{ post.excerpt }}</p>
+                </div>
+              </div>
+            </article>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="column"></div>
+      </div>
+    </div>
+  </div>
+</section>

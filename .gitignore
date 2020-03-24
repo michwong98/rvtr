@@ -1,6 +1,3 @@
 # jekyll
 _site/
 .jekyll-cache/
-
-# nodejs
-node_modules/
