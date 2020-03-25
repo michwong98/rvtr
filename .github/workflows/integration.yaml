@@ -40,10 +40,10 @@ jobs:
         run: npm install netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_pullrequest
-        run: npx netlify deploy --dir drop --message $NETLIFY_DEPLOY_MESSAGE
+        run: npx netlify deploy --dir drop --message ${{ env.NETLIFY_DEPLOY_MESSAGE }}
       - if: github.event_name == 'push'
         name: netlify_deploy_push
-        run: npx netlify deploy --dir drop --prod --message $NETLIFY_DEPLOY_MESSAGE
+        run: npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_DEPLOY_MESSAGE }}
 
 name: integration
 
