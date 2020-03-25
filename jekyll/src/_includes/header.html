@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar is-fixed-top">
+  <nav class="navbar">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item has-text-link" href="/">
@@ -8,9 +8,15 @@
           </span>
           <span>RVTR</span>
         </a>
+
+        <a class="navbar-burger burger" data-target="header-menu">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
       </div>
 
-      <div class="navbar-menu">
+      <div class="navbar-menu" id="header-menu">
         <div class="navbar-end">
           {% for link in site.data.header %}
           <a class="navbar-item has-text-link" href="{{ link.url }}">

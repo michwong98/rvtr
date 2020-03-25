@@ -15,9 +15,23 @@
     {% feed_meta %} {% seo %}
   </head>
 
-  <body class="has-navbar-fixed-top">
+  <body>
     {% include header.html %} {{ content }} {% include footer.html %}
 
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/js/all.min.js"></script>
+    <script>
+      const $burgers = document.querySelectorAll(".burger");
+
+      if ($burgers.length > 0) {
+        $burgers.forEach($el => {
+          $el.addEventListener("click", () => {
+            const target = $el.dataset.target;
+            const $target = document.querySelector(`#${target}`);
+            $el.classList.toggle("is-active");
+            $target.classList.toggle("is-active");
+          });
+        });
+      }
+    </script>
   </body>
 </html>
