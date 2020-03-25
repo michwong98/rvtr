@@ -26,7 +26,6 @@ jobs:
   deploy:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_DEPLOY_MESSAGE: ${GITHUB_REF##*/}_${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     name: deploy
     needs: build
@@ -40,10 +39,10 @@ jobs:
         run: npm install netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_pullrequest
-        run: npx netlify deploy --dir drop --message ${{ env.NETLIFY_DEPLOY_MESSAGE }}
-      - if: github.event_name == 'push'
+        run: npx netlify deploy --dir drop --message $(date '+%F_%T')_${GITHUB_HEAD_REF##*/}_${GITHUB_RUN_NUMBER}
+      - if: github.event_name != 'pull_request'
         name: netlify_deploy_push
-        run: npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_DEPLOY_MESSAGE }}
+        run: npx netlify deploy --dir drop --prod --message $(date '+%F_%T')_${GITHUB_REF##*/}_${GITHUB_RUN_NUMBER}
 
 name: integration
 
