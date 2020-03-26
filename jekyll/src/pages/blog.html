@@ -4,39 +4,33 @@ title: RVTR &Colon; blog
 
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
-    <br />
     <div class="container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title is-2">blog</h1>
+      <br />
+      <h1 class="title is-2">blog</h1>
 
-          {% for post in site.posts %}
-          <div class="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <h2 class="title is-4">
-                    <a class="has-text-link" href="{{ post.url }}">
-                      {{ post.title | downcase }}
-                    </a>
-                  </h2>
+      {% for post in site.posts %}
+      <div class="tile box is-6">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
 
-                  <p class="subtitle is-6">
-                    {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-                  </p>
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
 
-                  <section>
-                    {{ post.excerpt }}
-                  </section>
-                </div>
-              </div>
-            </article>
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
           </div>
-          {% endfor %}
-        </div>
-
-        <div class="column"></div>
+        </article>
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>

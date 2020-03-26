@@ -4,36 +4,30 @@ layout: page
 
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
-    <br />
     <div class="container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title is-2">post</h1>
+      <br />
+      <h1 class="title is-2">post</h1>
 
-          <div class="box">
-            <article>
-              <div class="content">
-                <h2 class="title is-4">{{ page.title | downcase }}</h2>
+      <div class="tile box is-6">
+        <article>
+          <div class="content">
+            <h2 class="title is-4">{{ page.title | downcase }}</h2>
 
-                {% assign author = site.authors | where: 'short_name',
-                page.author | first %} {% if author %}
-                <p class="subtitle is-6">
-                  {{ page.date | date: '%Y-%m-%d' }} &Colon;
-                  <a class="has-text-link" href="{{ author.url }}">
-                    {{ author.short_name }}
-                  </a>
-                </p>
-                {% endif %}
+            {% assign author = site.authors | where: 'short_name', page.author |
+            first %} {% if author %}
+            <p class="subtitle is-6">
+              {{ page.date | date: '%Y-%m-%d' }} &Colon;
+              <a class="has-text-link" href="{{ author.url }}">
+                {{ author.short_name }}
+              </a>
+            </p>
+            {% endif %}
 
-                <section>
-                  {{ content }}
-                </section>
-              </div>
-            </article>
+            <section>
+              {{ content }}
+            </section>
           </div>
-        </div>
-
-        <div class="column"></div>
+        </article>
       </div>
     </div>
   </div>
