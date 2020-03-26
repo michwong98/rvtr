@@ -10,12 +10,14 @@ jobs:
         with:
           ruby-version: "2.6"
       - name: bundle_install
-        run: bundle install
+        run: |
+          bundle install
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - env:
           JEKYLL_ENV: production
         name: jekyll_build
-        run: bundle exec jekyll build
+        run: |
+          bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: upload_artifact
         uses: actions/upload-artifact@v1
@@ -26,7 +28,7 @@ jobs:
   deploy:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_BASE_MESSAGE: '$(date "+%FT%T%z") :: ${GITHUB_WORKFLOW} \#${GITHUB_RUN_NUMBER}'
+      NETLIFY_BASE_MESSAGE: $(date "+%FT%T%z")_${GITHUB_WORKFLOW}_${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     name: deploy
     needs: build
@@ -37,15 +39,16 @@ jobs:
         with:
           name: drop
       - name: npm_install
-        run: npm install netlify-cli
+        run: |
+          npm install netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_pullrequest
         run: |
-          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }} :: ${GITHUB_HEAD_REF##*/}
+          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}_${GITHUB_HEAD_REF##*/}
       - if: github.event_name != 'pull_request'
         name: netlify_deploy_push
         run: |
-          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }} :: ${GITHUB_REF##*/}
+          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}_${GITHUB_REF##*/}
 
 name: integration
 
