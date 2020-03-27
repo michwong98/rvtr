@@ -28,7 +28,7 @@ jobs:
   deploy:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_BASE_MESSAGE: '$(date --iso-8601='seconds')\ ${GITHUB_WORKFLOW}\ \#${GITHUB_RUN_NUMBER}'
+      NETLIFY_BASE_MESSAGE: $(date --iso-8601='seconds')\ ${GITHUB_WORKFLOW}\ ${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     name: deploy
     needs: build
