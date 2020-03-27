@@ -8,10 +8,37 @@ title: RVTR &Colon; blog
       <br />
       <h1 class="title is-2">blog</h1>
 
-      {% for post in site.posts %}
-      <div class="tile box is-6">
-        <article class="media">
-          <div class="media-content">
+      <div class="tile is-ancestor">
+        {% assign post = site.posts[0] %}
+        <div class="tile is-parent">
+          <div class="tile box has-background-dark">
+            <article class="tile is-child"></article>
+            <article class="tile box is-8 is-child">
+              <div class="content">
+                <h2 class="title is-3">
+                  <a class="has-text-link" href="{{ post.url }}">
+                    {{ post.title | downcase }}
+                  </a>
+                </h2>
+
+                <p class="subtitle is-5">
+                  {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+                </p>
+
+                <section class="is-size-4">
+                  {{ post.excerpt }}
+                </section>
+              </div>
+            </article>
+            <article class="tile is-child"></article>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile is-ancestor">
+        {% assign post = site.posts[0] %}
+        <div class="tile is-parent">
+          <article class="tile box is-child">
             <div class="content">
               <h2 class="title is-4">
                 <a class="has-text-link" href="{{ post.url }}">
@@ -27,10 +54,173 @@ title: RVTR &Colon; blog
                 {{ post.excerpt }}
               </section>
             </div>
-          </div>
-        </article>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
       </div>
-      {% endfor %}
+
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <div class="tile is-parent">
+          <article class="tile box is-child">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ post.url }}">
+                  {{ post.title | downcase }}
+                </a>
+              </h2>
+
+              <p class="subtitle is-6">
+                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+              </p>
+
+              <section>
+                {{ post.excerpt }}
+              </section>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
