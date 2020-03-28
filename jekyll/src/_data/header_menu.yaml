@@ -1,3 +1,7 @@
+- text: apps
+  url: /pages/apps
+- text: docs
+  url: /pages/docs
 - text: blog
   url: /pages/blog
 - text: team

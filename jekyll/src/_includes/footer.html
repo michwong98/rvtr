@@ -6,8 +6,7 @@
       </div>
 
       <div class="level-right">
-
-        {% for link in site.data.footer %}
+        {% for link in site.data.footer_menu %}
         <a class="level-item has-text-link" href="{{ link.url }}" rel="noopener noreferrer" target="_blank">
           <span class="icon">
             <i class="{{ link.icon }}"></i>
@@ -15,7 +14,6 @@
           {{ link.text }}
         </a>
         {% endfor %}
-
       </div>
     </nav>
   </div>

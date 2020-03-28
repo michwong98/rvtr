@@ -17,14 +17,12 @@
       </div>
 
       <div class="navbar-menu" id="header-menu">
-        <div class="navbar-end">
-
-          {% for link in site.data.header %}
+        <div class="navbar-start">
+          {% for link in site.data.header_menu %}
           <a class="navbar-item has-text-link" href="{{ link.url }}">
             {{ link.text }}
           </a>
           {% endfor %}
-
         </div>
       </div>
     </div>
