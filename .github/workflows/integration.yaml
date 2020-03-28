@@ -44,7 +44,7 @@ jobs:
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_preview
         run: |
-          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ${GITHUB_HEAD_REF##*/}
+          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
       - if: github.event_name != 'pull_request'
         name: netlify_deploy_production
         run: |

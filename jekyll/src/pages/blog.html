@@ -8,38 +8,38 @@ title: RVTR &Colon; blog
       <br />
       <h1 class="title is-2">blog</h1>
 
-      {% for post in site.posts %}
       <div class="tile is-ancestor">
+        {% for post in site.posts %} {% if forloop.index == 1 %}
         <div class="tile is-parent">
           <div class="tile box has-background-dark">
-            {% if forloop.index == 1 %}
             <article class="tile is-child"></article>
             <article class="tile box is-8 is-child">
               <div class="content">
-                <h2 class="title is-3">
+                <h2 class="title is-4">
                   <a class="has-text-link" href="{{ post.url }}">
                     {{ post.title | downcase }}
                   </a>
                 </h2>
 
-                <p class="subtitle is-5">
+                <p class="subtitle is-6">
                   {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
                 </p>
 
-                <section class="is-size-4">
+                <section class="is-size-5">
                   {{ post.excerpt }}
                 </section>
               </div>
             </article>
             <article class="tile is-child"></article>
-            {% endif %}
           </div>
         </div>
+        {% endif %} {% endfor %}
       </div>
 
       <div class="tile is-ancestor">
+        {% for post in site.posts %} {% if forloop.index == 2 or forloop.index
+        == 3 %}
         <div class="tile is-parent">
-          {% if forloop.index > 1 and forloop.index < 4 %}
           <article class="tile box is-child">
             <div class="content">
               <h2 class="title is-4">
@@ -57,13 +57,14 @@ title: RVTR &Colon; blog
               </section>
             </div>
           </article>
-          {% endif %}
         </div>
+        {% endif %} {% endfor %}
       </div>
 
       <div class="tile is-ancestor">
+        {% for post in site.posts %} {% if forloop.index > 3 and forloop.index <
+        7 %}
         <div class="tile is-parent">
-          {% if forloop.index > 4 and forloop.index < 8 %}
           <article class="tile box is-child">
             <div class="content">
               <h2 class="title is-4">
@@ -81,11 +82,13 @@ title: RVTR &Colon; blog
               </section>
             </div>
           </article>
-          {% endif %}
         </div>
+        {% endif %} {% endfor %}
       </div>
 
       <div class="tile is-ancestor">
+        {% for post in site.posts %} {% if forloop.index > 6 and forloop.index <
+        11 %}
         <div class="tile is-parent">
           <article class="tile box is-child">
             <div class="content">
@@ -105,68 +108,8 @@ title: RVTR &Colon; blog
             </div>
           </article>
         </div>
-
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
-
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
-
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
-
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
-
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
-
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
-
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
-
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
-
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
+        {% endif %} {% endfor %}
       </div>
-      {% endfor %}
     </div>
   </div>
 </section>
