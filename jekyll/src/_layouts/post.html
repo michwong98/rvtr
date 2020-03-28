@@ -13,8 +13,8 @@ layout: page
           <div class="content">
             <h2 class="title is-4">{{ page.title | downcase }}</h2>
 
-            {% assign author = site.authors | where: 'short_name', page.author |
-            first %} {% if author %}
+            {% assign author = site.authors | where: 'short_name', page.author | first %}
+            {% if author %}
             <p class="subtitle is-6">
               {{ page.date | date: '%Y-%m-%d' }} &Colon;
               <a class="has-text-link" href="{{ author.url }}">

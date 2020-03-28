@@ -18,11 +18,13 @@
 
       <div class="navbar-menu" id="header-menu">
         <div class="navbar-end">
+
           {% for link in site.data.header %}
           <a class="navbar-item has-text-link" href="{{ link.url }}">
             {{ link.text }}
           </a>
           {% endfor %}
+
         </div>
       </div>
     </div>

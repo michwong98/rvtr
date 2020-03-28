@@ -8,8 +8,9 @@ title: RVTR &Colon; blog
       <br />
       <h1 class="title is-2">blog</h1>
 
+      {% for post in site.posts %}
+      {% if forloop.index == 1 %}
       <div class="tile is-ancestor">
-        {% for post in site.posts %} {% if forloop.index == 1 %}
         <div class="tile is-parent">
           <div class="tile box has-background-dark">
             <article class="tile is-child"></article>
@@ -33,83 +34,82 @@ title: RVTR &Colon; blog
             <article class="tile is-child"></article>
           </div>
         </div>
-        {% endif %} {% endfor %}
       </div>
+      {% endif %}
 
-      <div class="tile is-ancestor">
-        {% for post in site.posts %} {% if forloop.index == 2 or forloop.index
-        == 3 %}
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
+      {% if forloop.index >= 2 and forloop.index <= 3 %}
+      {% cycle '2_column_open': '<div class="tile is-ancestor">', '' %}
+      <div class="tile is-6 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title | downcase }}
+              </a>
+            </h2>
 
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
 
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
-        {% endif %} {% endfor %}
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
       </div>
+      {% cycle '2_column_close': '', '</div>' %}
+      {% endif %}
 
-      <div class="tile is-ancestor">
-        {% for post in site.posts %} {% if forloop.index > 3 and forloop.index <
-        7 %}
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
+      {% if forloop.index >= 4 and forloop.index <= 6 %}
+      {% cycle '3_column_open': '<div class="tile is-ancestor">', '', '' %}
+      <div class="tile is-4 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title | downcase }}
+              </a>
+            </h2>
 
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
 
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
-        {% endif %} {% endfor %}
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
       </div>
+      {% cycle '3_column_close': '', '', '</div>' %}
+      {% endif %}
 
-      <div class="tile is-ancestor">
-        {% for post in site.posts %} {% if forloop.index > 6 and forloop.index <
-        11 %}
-        <div class="tile is-parent">
-          <article class="tile box is-child">
-            <div class="content">
-              <h2 class="title is-4">
-                <a class="has-text-link" href="{{ post.url }}">
-                  {{ post.title | downcase }}
-                </a>
-              </h2>
+      {% if forloop.index >= 7 %}
+      {% cycle '4_column_open': '<div class="tile is-ancestor">', '', '', '' %}
+      <div class="tile is-3 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title | downcase }}
+              </a>
+            </h2>
 
-              <p class="subtitle is-6">
-                {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-              </p>
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
 
-              <section>
-                {{ post.excerpt }}
-              </section>
-            </div>
-          </article>
-        </div>
-        {% endif %} {% endfor %}
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
       </div>
+      {% cycle '4_column_close': '', '', '', '</div>' %}
+      {% endif %}
+
+      {% endfor %}
     </div>
   </div>
 </section>
