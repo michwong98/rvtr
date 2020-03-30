@@ -5,33 +5,32 @@ title: RVTR &Colon; team
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
     <div class="container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title is-2">team</h1>
+      <br>
+      <h1 class="title is-2">team</h1>
 
-          {% for author in site.authors %}
-          <div class="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <h2 class="title is-4">
-                    <a class="has-text-link" href="{{ author.url }}">
-                      {{ author.full_name }}
-                    </a>
-                  </h2>
+      {% for author in site.authors %}
+      <div class="tile box is-6">
+        <article class="media">
+          <div class="media-content">
+            <div class="content">
+              <h2 class="title is-4">
+                <a class="has-text-link" href="{{ author.url }}">
+                  {{ author.full_name }}
+                </a>
+              </h2>
 
-                  <p class="subtitle is-6">
-                    {{ author.content }}
-                  </p>
-                </div>
-              </div>
-            </article>
+              <p class="subtitle is-6">
+                {{ author.content }}
+              </p>
+            </div>
           </div>
-          {% endfor %}
-        </div>
-
-        <div class="column"></div>
+        </article>
       </div>
+      {% endfor %}
     </div>
+  </div>
+
+  <div class="hero-foot">
+    <br>
   </div>
 </section>

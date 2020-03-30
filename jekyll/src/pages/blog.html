@@ -5,37 +5,115 @@ title: RVTR &Colon; blog
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
     <div class="container">
-      <div class="columns">
-        <div class="column">
-          <h1 class="title is-2">blog</h1>
+      <br />
+      <h1 class="title is-2">blog</h1>
 
-          {% for post in site.posts %}
-          <div class="box">
-            <article class="media">
-              <div class="media-content">
-                <div class="content">
-                  <h2 class="title is-4">
-                    <a class="has-text-link" href="{{ post.url }}">
-                      {{ post.title | downcase }}
-                    </a>
-                  </h2>
+      {% for post in site.posts %}
+      {% if forloop.index == 1 %}
+      <div class="tile is-ancestor">
+        <div class="tile is-parent">
+          <div class="tile box has-background-dark">
+            <article class="tile is-child"></article>
+            <article class="tile box is-8 is-child">
+              <div class="content">
+                <h2 class="title is-4">
+                  <a class="has-text-link" href="{{ post.url }}">
+                    {{ post.title }}
+                  </a>
+                </h2>
 
-                  <p class="subtitle is-6">
-                    {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
-                  </p>
+                <p class="subtitle is-6">
+                  {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+                </p>
 
-                  <section>
-                    {{ post.excerpt }}
-                  </section>
-                </div>
+                <section class="is-size-5">
+                  {{ post.excerpt }}
+                </section>
               </div>
             </article>
+            <article class="tile is-child"></article>
           </div>
-          {% endfor %}
         </div>
-
-        <div class="column"></div>
       </div>
+      {% endif %}
+
+      {% if forloop.index >= 2 and forloop.index <= 3 %}
+      {% cycle '2_column_open': '<div class="tile is-ancestor">', '' %}
+      <div class="tile is-6 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </h2>
+
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
+
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
+      </div>
+      {% cycle '2_column_close': '', '</div>' %}
+      {% endif %}
+
+      {% if forloop.index >= 4 and forloop.index <= 6 %}
+      {% cycle '3_column_open': '<div class="tile is-ancestor">', '', '' %}
+      <div class="tile is-4 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </h2>
+
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
+
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
+      </div>
+      {% cycle '3_column_close': '', '', '</div>' %}
+      {% endif %}
+
+      {% if forloop.index >= 7 %}
+      {% cycle '4_column_open': '<div class="tile is-ancestor">', '', '', '' %}
+      <div class="tile is-3 is-parent">
+        <article class="tile box is-child">
+          <div class="content">
+            <h2 class="title is-4">
+              <a class="has-text-link" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </h2>
+
+            <p class="subtitle is-6">
+              {{ post.date | date: '%Y-%m-%d' }} &Colon; {{ post.author }}
+            </p>
+
+            <section>
+              {{ post.excerpt }}
+            </section>
+          </div>
+        </article>
+      </div>
+      {% cycle '4_column_close': '', '', '', '</div>' %}
+      {% endif %}
+
+      {% endfor %}
     </div>
+  </div>
+
+  <div class="hero-foot">
+    <br>
   </div>
 </section>
