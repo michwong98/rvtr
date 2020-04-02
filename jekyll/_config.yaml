@@ -6,6 +6,11 @@ defaults:
       layout: "author"
   - scope:
       path: ""
+      type: "manuals"
+    values:
+      layout: "manual"
+  - scope:
+      path: ""
       type: "pages"
     values:
       layout: "page"
@@ -21,6 +26,8 @@ defaults:
 
 collections:
   authors:
+    output: true
+  manuals:
     output: true
 
 plugins:

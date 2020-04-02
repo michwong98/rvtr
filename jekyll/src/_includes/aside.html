@@ -3,13 +3,17 @@
   <p class="menu-label has-text-white">{{ item.menu }}</p>
   <ul class="menu-list">
     {% for sub_item in item.sub_menus %}
-    <li><a class="has-text-white" href="#">{{ sub_item.topic }}</a></li>
+    <li>
+      <a class="has-text-white" href="{{ sub_item.url }}"
+        >{{ sub_item.topic }}</a
+      >
+    </li>
     {% if sub_item.sub_topics %}
     <li>
       <ul>
         {% for sub_sub_item in sub_item.sub_topics %}
         <li>
-          <a class="has-text-white" href="{{ sub_sub_sub_item.url }}"
+          <a class="has-text-white" href="{{ sub_sub_item.url }}"
             >{{ sub_sub_item.text }}</a
           >
         </li>
