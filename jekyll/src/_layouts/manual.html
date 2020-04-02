@@ -1,0 +1,32 @@
+---
+layout: page
+---
+
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-head">
+    <div class="container">
+      <br />
+      <h1 class="title is-2">docs</h1>
+
+      <div class="tile is-ancestor">
+        <div class="tile is-3 is-parent">
+          <div class="tile box has-background-dark is-child">
+            {% include aside.html %}
+          </div>
+        </div>
+
+        <div class="tile is-9 is-parent">
+          <div class="tile is-child">
+            <div class="content">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <br />
+  </div>
+</section>

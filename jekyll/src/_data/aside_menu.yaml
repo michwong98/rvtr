@@ -1,0 +1,8 @@
+- menu: languages
+  sub_menus:
+    - topic: C#
+      sub_topics:
+        - text: resources
+    - topic: JavaScript
+      sub_topics:
+        - text: resources
