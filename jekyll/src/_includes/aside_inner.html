@@ -6,7 +6,7 @@
     {% assign members = site.manuals | where: 'member_of', page.name_code %}
     {% for member in members %}
     <li>
-      <a class="has-text-white" href="{{ member.url }}">{{ member.title }}</a>
+      <a class="has-text-white" href="{{ member.url }}">{{ member.alias }}</a>
     </li>
     {% endfor %}
   </ul>
@@ -19,7 +19,7 @@
     {% assign members = site.manuals | where: 'member_of', manual.name_code %}
     {% for member in members %}
     <li>
-      <a class="has-text-white" href="{{ member.url }}">{{ member.title }}</a>
+      <a class="has-text-white" href="{{ member.url }}">{{ member.alias }}</a>
     </li>
     {% endfor %}
   </ul>
