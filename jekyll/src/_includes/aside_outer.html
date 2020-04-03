@@ -1,0 +1,13 @@
+<!-- prettier-ignore -->
+<aside class="menu">
+  {% for item in site.data.aside_menu %}
+  <p class="menu-label has-text-white">{{ item.menu }}</p>
+  <ul class="menu-list">
+    {% for sub_item in item.sub_menus %}
+    <li>
+      <a class="has-text-white" href="{{ sub_item.url }}">{{ sub_item.topic }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+</aside>

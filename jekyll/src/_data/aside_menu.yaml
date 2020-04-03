@@ -1,12 +1,6 @@
 - menu: languages
   sub_menus:
-    - sub_topics:
-        - text: resources
-          url: /manuals/cs/resources
-      topic: C#
+    - topic: C#
       url: /manuals/cs/csharp
-    - sub_topics:
-        - text: resources
-          url: /manuals/js/resources
-      topic: JavaScript
+    - topic: JavaScript
       url: /manuals/js/javascript
