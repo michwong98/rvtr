@@ -2,7 +2,6 @@
 layout: page
 ---
 
-<!-- prettier-ignore -->
 <section class="hero is-fullheight-with-navbar">
   <div class="hero-head">
     <div class="container">
@@ -16,16 +15,18 @@ layout: page
           </div>
         </div>
 
-        <div class="tile is-10 is-parent">
-          <div class="tile box">
-            <div class="tile is-child">
-              <div class="content">
-                {{ content }}
+        <div class="tile is-parent">
+          <div class="tile box is-child">
+            <div class="columns">
+              <div class="column is-10">
+                <div class="content">
+                  {{ content }}
+                </div>
               </div>
-            </div>
 
-            <div class="tile box has-background-dark is-2 is-child">
-              {% include aside_inner.html %}
+              <div class="column is-2 box has-background-dark">
+                {% include aside_inner.html %}
+              </div>
             </div>
           </div>
         </div>
