@@ -1,19 +1,8 @@
 <!-- prettier-ignore -->
-<aside class="menu">
-  {% if page.name_full %}
-  <p class="menu-label has-text-white">{{ page.name_full }}</p>
-  <ul class="menu-list">
-    {% assign members = site.manuals | where: 'member_of', page.name_code %}
-    {% for member in members %}
-    <li>
-      <a class="has-text-primary" href="{{ member.url }}">{{ member.alias }}</a>
-    </li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-
-  {% if page.member_of %}
-  {% assign manual = site.manuals | where: 'name_code', page.member_of | first %}
+{% if page.member_of or page.name_code %}
+<aside class="menu box has-background-dark">
+  {% if page.member_of %} {% assign manual = site.manuals | where: 'name_code',
+  page.member_of | first %}
   <p class="menu-label has-text-white">{{ manual.name_full }}</p>
   <ul class="menu-list">
     {% assign members = site.manuals | where: 'member_of', manual.name_code %}
@@ -23,5 +12,16 @@
     </li>
     {% endfor %}
   </ul>
+  {% endif %} {% if page.name_code %}
+  <p class="menu-label has-text-white">{{ page.name_full }}</p>
+  <ul class="menu-list">
+    {% assign members = site.manuals | where: 'member_of', page.name_code %} {%
+    for member in members %}
+    <li>
+      <a class="has-text-primary" href="{{ member.url }}">{{ member.alias }}</a>
+    </li>
+    {% endfor %}
+  </ul>
   {% endif %}
 </aside>
+{% endif %}
