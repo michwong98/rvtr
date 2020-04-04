@@ -6,7 +6,13 @@ title: RVTR &Colon; home &bullet; js
 
 ## JavaScript
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis architecto
-placeat rerum, soluta aliquid temporibus, omnis possimus perferendis
-voluptatum repudiandae nostrum voluptas, perspiciatis ea numquam sapiente
-deserunt. Iste, quos odit.
+| **callback** | function ||||||||||||||
+| **closure** | function |
+| **constructor** | function |
+| **datatype** | boolean, number, null, object, string, undefined |
+| **falsy value** | 0, empty string, false, NaN, null, undefined |
+| **hoisting** | compiled, interpreted |
+| **prototype** | linked |
+| **scope** | window, document, function, block |
+| **truthy value** | any non-falsy value |
+| **type coercrion** | datatype conversion |
