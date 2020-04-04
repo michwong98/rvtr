@@ -6,7 +6,5 @@ title: RVTR &Colon; resources &bullet; html
 
 ## resources • html
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis architecto
-placeat rerum, soluta aliquid temporibus, omnis possimus perferendis
-voluptatum repudiandae nostrum voluptas, perspiciatis ea numquam sapiente
-deserunt. Iste, quos odit.
+| **WHATWG** | <https://html.spec.whatwg.org/dev/> |||||||||||||
+| **Mozilla MDN** | <https://developer.mozilla.org/en-US/docs/Web/HTML> |
