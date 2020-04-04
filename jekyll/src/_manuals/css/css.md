@@ -6,7 +6,13 @@ title: RVTR &Colon; home &bullet; css
 
 ## CSS
 
-Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis architecto
-placeat rerum, soluta aliquid temporibus, omnis possimus perferendis
-voluptatum repudiandae nostrum voluptas, perspiciatis ea numquam sapiente
-deserunt. Iste, quos odit.
+| **adaptive** | web design |||||||||||||
+| **external** | stylesheet |
+| **inline** | stylesheet |
+| **internal** | stylesheet |
+| **precedence** | cascade, order |
+| **property** | style attribute |
+| **responsive** | web design |
+| **rule** | key-value pair |
+| **selector** | class, id, pseudo-class, pseudo-element, tag, wildcard |
+| **specificity** | !important, class, id, tag, wildcard |
