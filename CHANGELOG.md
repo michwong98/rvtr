@@ -7,13 +7,17 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- design and launch the docs page
+
 ## [0.0.0] :: 2020-03-31
 
 ### added
 
 - scaffold the jekyll directory
-- design and launch the website
-- design and launch the blogsite
+- design and launch the web site
+- design and launch the blog site
 
 [0.0.0]: https://github.com/RVTR/rvtr/tree/0.0.0 "0.0.0"
 [changelog]: https://keepachangelog.com/en/1.0.0/ "keep a changelog"
