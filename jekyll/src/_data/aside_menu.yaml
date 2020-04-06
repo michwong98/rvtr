@@ -1,0 +1,8 @@
+- menu: languages
+  sub_menus:
+    - topic: CSS
+      url: /manuals/css/css
+    - topic: HTML
+      url: /manuals/html/html
+    - topic: JavaScript
+      url: /manuals/js/javascript

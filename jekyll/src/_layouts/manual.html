@@ -1,0 +1,40 @@
+---
+layout: page
+---
+
+<section class="hero is-fullheight-with-navbar">
+  <div class="hero-head">
+    <div class="container">
+      <br />
+      <h1 class="title is-2">docs</h1>
+
+      <div class="tile is-ancestor">
+        <div class="tile is-2 is-parent">
+          <div class="tile is-child">
+            {% include aside_outer.html %}
+          </div>
+        </div>
+
+        <div class="tile is-parent">
+          <div class="tile box is-child">
+            <div class="columns">
+              <div class="column is-10">
+                <div class="content">
+                  {{ content }}
+                </div>
+              </div>
+
+              <div class="column is-2">
+                {% include aside_inner.html %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-foot">
+    <br />
+  </div>
+</section>

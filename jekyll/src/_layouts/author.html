@@ -9,15 +9,15 @@ layout: page
       <h1 class="title is-3">{{ page.full_name }}</h1>
       <h2 class="subtitle is-5">{{ content }}</h2>
 
-      {% assign posts = site.posts | where: 'author', page.short_name %}
-      {% for post in posts %}
+      {% assign posts = site.posts | where: 'author', page.short_name %} {% for
+      post in posts %}
       <div class="tile box is-6">
         <article class="media">
           <div class="media-content">
             <div class="content">
               <header>
                 <h2 class="title is-4">
-                  <a class="has-text-link" href="{{ post.url }}">
+                  <a class="has-text-primary" href="{{ post.url }}">
                     {{ post.title | downcase }}
                   </a>
                 </h2>
@@ -37,6 +37,6 @@ layout: page
   </div>
 
   <div class="hero-foot">
-    <br>
+    <br />
   </div>
 </section>
