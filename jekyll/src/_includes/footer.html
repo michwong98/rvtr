@@ -1,3 +1,4 @@
+<!-- prettier-ignore -->
 <footer class="footer">
   <div class="container">
     <nav class="level">
@@ -7,14 +8,9 @@
 
       <div class="level-right">
         {% for link in site.data.footer_menu %}
-        <a
-          class="level-item has-text-primary"
-          href="{{ link.url }}"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <a class="level-item has-text-primary" href="{{ link.url }}" rel="noopener noreferrer" target="_blank">
           <span class="icon">
-            <i class="{{ link.icon }}"></i>
+            <i aria-hidden="true" class="{{ link.icon }}"></i>
           </span>
           {{ link.text }}
         </a>
