@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+## added
+
+- design and launch the apps page
+
 ## [0.1.0] :: 2020-04-14
 
 ### added
