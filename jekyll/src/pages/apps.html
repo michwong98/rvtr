@@ -7,10 +7,41 @@ title: RVTR &Colon; apps
     <div class="container">
       <br />
       <h1 class="title is-2">apps</h1>
+
+      <div class="columns is-multiline">
+        {% for app in site.data.app_menu %}
+        <div class="column is-one-quarter">
+          <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                <span class="icon">
+                  <i aria-hidden="true" class="{{ app.icon }}"></i>
+                </span>
+                <span>{{ app.title }}</span>
+              </p>
+            </header>
+
+            <div class="card-image">
+              <figure class="image">
+                <img src="{{ app.image }}" alt="placeholder image" />
+              </figure>
+            </div>
+
+            <div class="card-content">{{ app.content }}</div>
+
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item">
+                {{ app.action | upcase }}
+              </a>
+            </footer>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 
   <div class="hero-foot">
-    <br>
+    <br />
   </div>
 </section>
