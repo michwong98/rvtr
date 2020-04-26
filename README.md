@@ -1,7 +1,6 @@
 # readme
 
 [![build status](https://github.com/RVTR/rvtr/workflows/build/badge.svg)](https://github.com/RVTR/rvtr/actions?query=workflow%3Abuild)
-[![deploy status](https://api.netlify.com/api/v1/badges/d3b96a1d-0997-4e5e-9c74-8e0c899f2062/deploy-status)](https://app.netlify.com/sites/rvtr/deploys)
 [![maintainability rating](https://sonarcloud.io/api/project_badges/measure?project=rvtr_app&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=rvtr_app)
 [![reliability rating](https://sonarcloud.io/api/project_badges/measure?project=rvtr_app&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=rvtr_app)
 [![security rating](https://sonarcloud.io/api/project_badges/measure?project=rvtr_app&metric=security_rating)](https://sonarcloud.io/dashboard?id=rvtr_app)
