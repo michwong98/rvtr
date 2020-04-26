@@ -50,7 +50,7 @@ jobs:
         run: |
           npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
 
-name: integration
+name: build
 
 on:
   push:
