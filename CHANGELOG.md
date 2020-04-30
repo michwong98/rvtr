@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning][semver].
 ## added
 
 - design and launch the apps page
+- configure the apps page project urls
 
 ## [0.1.0] :: 2020-04-14
 

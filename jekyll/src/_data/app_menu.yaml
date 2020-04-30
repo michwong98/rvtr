@@ -3,6 +3,6 @@
     RVTR Campsite, where you can book your next business or pleasure camping night(s) worldwide!
     🏨 ⛺️ 🏰
   icon: "fas fa-couch"
-  # image: "https://bulma.io/images/placeholders/1280x960.png"
   image: "/assets/img/red-lights-1280.jpg"
   title: "RVTR Campsite"
+  url: "https://campsite.netlify.app/"
