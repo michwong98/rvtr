@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
-## added
+## [0.2.0] :: 2020-04-30
+
+### added
 
 - design and launch the apps page
 - configure the apps page project urls
@@ -26,6 +28,7 @@ and this project adheres to [Semantic Versioning][semver].
 - design and launch the web site
 - design and launch the blog site
 
+[0.2.0]: https://github.com/RVTR/rvtr/tree/0.2.0 "0.2.0"
 [0.1.0]: https://github.com/RVTR/rvtr/tree/0.1.0 "0.1.0"
 [0.0.0]: https://github.com/RVTR/rvtr/tree/0.0.0 "0.0.0"
 [changelog]: https://keepachangelog.com/en/1.0.0/ "keep a changelog"
