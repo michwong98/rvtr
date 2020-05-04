@@ -1,5 +1,5 @@
 [[redirects]]
-  force = true
-  from = "https://rvtr.netlify.com/*"
-  status = 301
-  to = "https://rvtr.net/:splat"
+from = "https://rvtr.netlify.com/*"
+force = true
+status = 301
+to = "https://rvtr.net/:splat"
