@@ -30,6 +30,9 @@ collections:
   manuals:
     output: true
 
+include:
+  - netlify.toml
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
