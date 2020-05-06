@@ -3,6 +3,8 @@ env:
 
 jobs:
   build:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
     name: build_jekyll
     runs-on: ubuntu-18.04
     steps:
