@@ -1,12 +1,16 @@
-const $burgers = document.querySelectorAll(".burger");
+import Sentry from "./sentry.script";
 
-if ($burgers.length > 0) {
-  $burgers.forEach(($el) => {
-    $el.addEventListener("click", () => {
-      const target = $el.dataset.target;
-      const $target = document.querySelector(`#${target}`);
-      $el.classList.toggle("is-active");
-      $target.classList.toggle("is-active");
+const burgers = document.querySelectorAll(".burger");
+
+try {
+  burgers.forEach((element) => {
+    element.addEventListener("click", () => {
+      const target = document.querySelector(`#${element.dataset.target}`);
+
+      element.classList.toggle("is-active");
+      target.classList.toggle("is-active");
     });
   });
+} catch (error) {
+  Sentry.captureException(error);
 }
