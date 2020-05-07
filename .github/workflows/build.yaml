@@ -27,7 +27,7 @@ jobs:
         name: jekyll_build
         run: bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
-      - name: upload_artifact
+      - name: drop_upload
         uses: actions/upload-artifact@v1.0.0
         with:
           name: drop
@@ -38,32 +38,43 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_BASE_MESSAGE: $(date --iso-8601='seconds')\ ::\ ${GITHUB_WORKFLOW}\ ::\ ${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr@${npm_package_version}')
     name: deploy_jekyll
     needs: build
     runs-on: ubuntu-18.04
     steps:
-      - name: actions_checkout
-        uses: actions/checkout@v2.1.0
-      - name: download_artifact
+      - name: drop_download
         uses: actions/download-artifact@v1.0.0
         with:
           name: drop
-          path: ${{ env.WORKING_DIRECTORY }}/_site
       - name: npm_install
-        run: npm install @sentry/cli netlify-cli
+        run: npm install netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_preview
-        run: |
-          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
-          npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
-        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
       - if: github.event_name != 'pull_request'
         name: netlify_deploy
-        run: |
-          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
-          npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
+        run: npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
+
+  monitor:
+    env:
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr@${npm_package_version}')
+    name: monitor_jekyll
+    needs: deploy
+    runs-on: ubuntu-18.04
+    steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
+      - name: npm_install
+        run: npm clean-install
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: github.event_name == 'pull_request'
+        name: sentry_deploy_dev
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+      - if: github.event_name != 'pull_request'
+        name: sentry_deploy
+        run: npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
         working-directory: ${{ env.WORKING_DIRECTORY }}
 
 name: build
