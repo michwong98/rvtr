@@ -8,7 +8,8 @@ jobs:
     name: build_jekyll
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
       - uses: actions/setup-ruby@v1
         with:
           ruby-version: "2.6"
@@ -27,10 +28,10 @@ jobs:
         run: bundle exec jekyll build
         working-directory: ${{ env.WORKING_DIRECTORY }}
       - name: upload_artifact
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v1.0.0
         with:
           name: drop
-          path: jekyll/_site
+          path: ${{ env.WORKING_DIRECTORY }}/_site
 
   deploy:
     env:
@@ -43,10 +44,13 @@ jobs:
     needs: build
     runs-on: ubuntu-18.04
     steps:
+      - name: actions_checkout
+        uses: actions/checkout@v2.1.0
       - name: download_artifact
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v1.0.0
         with:
           name: drop
+          path: ${{ env.WORKING_DIRECTORY }}/_site
       - name: npm_install
         run: npm install @sentry/cli netlify-cli
       - if: github.event_name == 'pull_request'
@@ -54,11 +58,13 @@ jobs:
         run: |
           npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
           npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
+        working-directory: ${{ env.WORKING_DIRECTORY }}
       - if: github.event_name != 'pull_request'
         name: netlify_deploy
         run: |
           npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
           npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
+        working-directory: ${{ env.WORKING_DIRECTORY }}
 
 name: build
 
