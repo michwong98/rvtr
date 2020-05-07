@@ -63,7 +63,7 @@ jobs:
   monitor:
     env:
       SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr@${npm_package_version}')
+      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr-app@${npm_package_version}')
     name: monitor_jekyll
     needs: deploy
     runs-on: ubuntu-18.04

@@ -12,7 +12,7 @@ module.exports = {
   plugins: [
     new SentryPlugin({
       include: "./src/assets/js/",
-      release: `rvtr@${process.env.npm_package_version}`,
+      release: `rvtr-app@${process.env.npm_package_version}`,
       setCommits: {
         auto: true,
         repo: "rvtr",
