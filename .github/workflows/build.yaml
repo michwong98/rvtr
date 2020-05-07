@@ -37,6 +37,8 @@ jobs:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       NETLIFY_BASE_MESSAGE: $(date --iso-8601='seconds')\ ::\ ${GITHUB_WORKFLOW}\ ::\ ${GITHUB_RUN_NUMBER}
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+      SENTRY_RELEASE_VERSION: $(npx -c 'echo rvtr@${npm_package_version}')
     name: deploy_jekyll
     needs: build
     runs-on: ubuntu-18.04
@@ -46,13 +48,17 @@ jobs:
         with:
           name: drop
       - name: npm_install
-        run: npm install netlify-cli
+        run: npm install @sentry/cli netlify-cli
       - if: github.event_name == 'pull_request'
         name: netlify_deploy_preview
-        run: npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
+        run: |
+          npx netlify deploy --dir drop --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_HEAD_REF##*/}
+          npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env DEV
       - if: github.event_name != 'pull_request'
-        name: netlify_deploy_production
-        run: npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
+        name: netlify_deploy
+        run: |
+          npx netlify deploy --dir drop --prod --message ${{ env.NETLIFY_BASE_MESSAGE }}\ ::\ ${GITHUB_REF##*/}
+          npx sentry-cli releases deploys ${{ env.SENTRY_RELEASE_VERSION }} new --env PROD
 
 name: build
 
