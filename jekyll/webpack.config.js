@@ -6,7 +6,7 @@ module.exports = {
   entry: "./src/_scripts/main.js",
   mode: "production",
   output: {
-    filename: "rvtr.bundle.js",
+    filename: "rvtr_app.bundle.js",
     path: path.resolve(__dirname, "src/assets/js/"),
   },
   plugins: [
@@ -15,7 +15,7 @@ module.exports = {
       release: `rvtr-app@${process.env.npm_package_version}`,
       setCommits: {
         auto: true,
-        repo: "rvtr",
+        repo: "rvtr-app",
       },
     }),
   ],
