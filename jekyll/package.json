@@ -1,0 +1,19 @@
+{
+  "author": "fred belotte",
+  "description": "website :: blogsite",
+  "license": "MIT",
+  "name": "@rvtr/rvtr-app",
+  "version": "0.3.0",
+  "dependencies": {
+    "@sentry/browser": "^5.15.5"
+  },
+  "devDependencies": {
+    "@sentry/cli": "^1.52.3",
+    "@sentry/webpack-plugin": "^1.11.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}

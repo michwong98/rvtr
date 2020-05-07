@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 
+<!-- prettier-ignore -->
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -21,19 +22,6 @@
     {% include footer.html %}
 
     <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/js/all.min.js"></script>
-    <script>
-      const $burgers = document.querySelectorAll(".burger");
-
-      if ($burgers.length > 0) {
-        $burgers.forEach($el => {
-          $el.addEventListener("click", () => {
-            const target = $el.dataset.target;
-            const $target = document.querySelector(`#${target}`);
-            $el.classList.toggle("is-active");
-            $target.classList.toggle("is-active");
-          });
-        });
-      }
-    </script>
+    <script src="/assets/js/rvtr_app.bundle.js"></script>
   </body>
 </html>
