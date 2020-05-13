@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+## [0.3.0] :: 2020-05-12
+
 ### added
 
 - configure the project to support application monitoring
@@ -32,6 +34,7 @@ and this project adheres to [Semantic Versioning][semver].
 - design and launch the web site
 - design and launch the blog site
 
+[0.3.0]: https://github.com/RVTR/rvtr/tree/0.3.0 "0.3.0"
 [0.2.0]: https://github.com/RVTR/rvtr/tree/0.2.0 "0.2.0"
 [0.1.0]: https://github.com/RVTR/rvtr/tree/0.1.0 "0.1.0"
 [0.0.0]: https://github.com/RVTR/rvtr/tree/0.0.0 "0.0.0"
