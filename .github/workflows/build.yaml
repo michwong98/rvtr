@@ -9,9 +9,7 @@ jobs:
     steps:
       - run: |
           echo ${{ github.ref }}
-          echo '$GITHUB_REF'
           echo ${{ github.head_ref }}
-          echo '$GITHUB_HEAD_REF'
 
   build:
     if: github.ref == github.head_ref
@@ -49,7 +47,8 @@ jobs:
 name: build
 
 on:
+  push:
+    tags:
   pull_request:
     branches:
       - master
-    tags:
