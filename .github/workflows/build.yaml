@@ -3,14 +3,18 @@ env:
 
 jobs:
   test:
-    if: github.event_name == 'release'
+    if: github.ref != github.head_ref
     name: test_release
     runs-on: ubuntu-18.04
     steps:
-      - run: echo ${{ github.event.release.tag_name }}
+      - run: |
+        echo ${{ github.ref }}
+        echo ${GITHUB_REF}
+        echo ${{ github.head_ref }}
+        echo ${GITHUB_HEAD_REF}
 
   build:
-    if: github.event_name == 'pull_request'
+    if: github.ref == github.head_ref
     name: build_jekyll
     runs-on: ubuntu-18.04
     steps:
@@ -48,6 +52,4 @@ on:
   pull_request:
     branches:
       - master
-  release:
-    types:
-      - created
+    tags:
