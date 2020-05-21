@@ -9,9 +9,9 @@ jobs:
     steps:
       - run: |
         echo ${{ github.ref }}
-        echo ${GITHUB_REF}
+        echo $GITHUB_REF
         echo ${{ github.head_ref }}
-        echo ${GITHUB_HEAD_REF}
+        echo $GITHUB_HEAD_REF
 
   build:
     if: github.ref == github.head_ref
