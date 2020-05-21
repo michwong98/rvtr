@@ -47,8 +47,7 @@ jobs:
 name: build
 
 on:
-  push:
-    tags:
   pull_request:
     branches:
       - master
+    tags:
