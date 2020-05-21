@@ -2,17 +2,7 @@ env:
   WORKING_DIRECTORY: jekyll
 
 jobs:
-  test:
-    if: github.ref != github.head_ref
-    name: test_release
-    runs-on: ubuntu-18.04
-    steps:
-      - run: |
-          echo ${{ github.ref }}
-          echo ${{ github.head_ref }}
-
   build:
-    if: github.ref == github.head_ref
     name: build_jekyll
     runs-on: ubuntu-18.04
     steps:
@@ -50,4 +40,3 @@ on:
   pull_request:
     branches:
       - master
-  release:
