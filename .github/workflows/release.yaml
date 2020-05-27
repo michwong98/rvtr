@@ -105,3 +105,4 @@ on:
     branches:
       - master
     tags:
+      - '*'
