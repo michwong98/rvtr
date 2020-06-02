@@ -41,7 +41,7 @@ jobs:
   deploy:
     env:
       NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      NETLIFY_MESSAGE: $(date --iso-8601='seconds')\ ::\ $(npx -c 'echo rvtr-app@${npm_package_version}')
+      NETLIFY_MESSAGE: $(date --iso-8601='seconds')\ ::\ $(npx -c 'echo blog@${npm_package_version}')
       NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
     name: deploy_jekyll
     needs: build
