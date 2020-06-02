@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning][semver].
 
 ## [unreleased]
 
+### added
+
+- define and launch the media workflow
+
 ## [0.4.1] :: 2020-05-27
 
 ### fixed
